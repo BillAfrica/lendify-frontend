@@ -42,7 +42,7 @@ function PasswordInputField({
         onBlur={onBlur}
         onChange={onChange}
         value={value}
-        className="bg-gray-200 border placeholder:text-gray-400  rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+        className="bg-gray-200 border focus:border-primary focus:outline-primary placeholder:text-gray-400  rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
         placeholder={placeholder}
         maxLength={maxLength}
         minLength={minLength}

@@ -5,27 +5,31 @@ import PrimaryButton from "../../../components/block/button/PrimaryButton";
 import { appName } from "../../../utils/constants";
 import ScreenHeader from "../../../components/base/header/ScreenHeader";
 import { FaUserCircle } from "react-icons/fa";
+import FileUploadField from "../../../components/block/inputs/FileUploadField";
 
 function Kyc() {
   return (
-    <section className="bg-primaryBg min-h-screen min-w-screen">
+    <section className="bg-primaryBg min-h-screen min-w-screen pb-20">
       <div className="2xl:mx-auto 2xl:container md:flex items-center justify-center">
         <Formik
           initialValues={{
-            firstName: "",
-            lastName: "",
-            alternateEmail: "string",
-            phone: "string",
-            alternatePhone: "string",
-            address: "string",
-            city: "string",
-            state: "string",
-            maritalStatus: "string",
-            profileImage: {},
-            profileImagePublicId: "string",
-            nationality: "string",
-            lgaOfOrigin: "string",
-            email: "",
+            employer: "",
+            occupation: "",
+            workEmail: "",
+            workAddress: "",
+            workCity: "",
+            workState: "",
+            annualIncome: 0,
+            nextOfKinName: "",
+            nextOfKinAddress: "",
+            nextOfKinState: "",
+            nextOfKinEmail: "",
+            nextOfKinPhone: "",
+            accountNumber: "",
+            governmentId: {},
+            utilityBill: {},
+            passportPhotograph: {},
+            bankStatement: {},
           }}
           validationSchema={Yup.object({
             email: Yup.string()
@@ -66,137 +70,216 @@ function Kyc() {
               </div>
 
               <div className="p-3 md:p-10">
-                <div className=" grid grid-cols-2 gap-5">
+                <h2 className="text-primaryText text-xs font-bold ">
+                  EMPLOYER / BUSINESS INFORMATION
+                </h2>
+                <hr className="w-full bg-gray-400 my-5" />
+
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
                   <PrimaryInputField
-                    label="First Name"
+                    label="Employer Name"
                     type="text"
-                    name="firstName"
+                    name="employer"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.firstName}
-                    error={errors.firstName}
-                    placeholder={""}
+                    value={values.employer}
+                    error={errors.employer}
+                    placeholder="Enter your employer name"
                   />
                   <PrimaryInputField
-                    label="Last Name"
+                    label="Occupation"
                     type="text"
-                    name="lastName"
+                    name="occupation"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.lastName}
-                    error={errors.lastName}
-                    placeholder={""}
+                    value={values.occupation}
+                    error={errors.occupation}
+                    placeholder="e.g Engineer"
                   />
                 </div>
 
-                <div className=" grid grid-cols-2 gap-5">
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
                   <PrimaryInputField
-                    label="Phone Number"
+                    label="Work Email Address"
                     type="text"
-                    name="phone"
+                    name="workEmail"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.phone}
-                    error={errors.phone}
-                    placeholder={""}
+                    value={values.workEmail}
+                    error={errors.workEmail}
+                    placeholder="Enter your work email address name"
                   />
-                  <PrimaryInputField
-                    label="Alternate Phone Number"
-                    type="text"
-                    name="alternatePhone"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.alternatePhone}
-                    error={errors.alternatePhone}
-                    placeholder={""}
-                  />
-                </div>
-
-                <div className=" grid grid-cols-2 gap-5">
-                  <PrimaryInputField
-                    label="Email"
-                    type="email"
-                    name="email"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.email}
-                    error={errors.email}
-                    placeholder={""}
-                  />
-                  <PrimaryInputField
-                    label="Alternate Email"
-                    type="email"
-                    name="alternateEmail"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.alternateEmail}
-                    error={errors.alternateEmail}
-                    placeholder={""}
-                  />
-                </div>
-                <div className=" grid grid-cols-2 gap-5">
                   <PrimaryInputField
                     label="Address"
                     type="text"
-                    name="address"
+                    name="occupation"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.address}
-                    error={errors.address}
-                    placeholder={""}
+                    value={values.workAddress}
+                    error={errors.workAddress}
+                    placeholder=""
                   />
+                </div>
+
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
                   <PrimaryInputField
                     label="City"
                     type="text"
-                    name="city"
+                    name="workCity"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.city}
-                    error={errors.city}
-                    placeholder={""}
+                    value={values.workCity}
+                    error={errors.workCity}
+                    placeholder=""
                   />
-                </div>
-
-                <div className=" grid grid-cols-2 gap-5">
                   <PrimaryInputField
                     label="State"
                     type="text"
-                    name="state"
+                    name="workState"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.state}
-                    error={errors.state}
-                    placeholder={""}
-                  />
-                  <PrimaryInputField
-                    label="Marital Status"
-                    type="text"
-                    name="maritalStatus"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.maritalStatus}
-                    error={errors.maritalStatus}
-                    placeholder={""}
+                    value={values.workState}
+                    error={errors.workState}
+                    placeholder=""
                   />
                 </div>
 
-                <div className=" grid grid-cols-2 gap-5"></div>
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
+                  <PrimaryInputField
+                    label="Annual Estimated Income"
+                    type="text"
+                    name="annualIncome"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.annualIncome}
+                    error={errors.annualIncome}
+                    placeholder="N 100, 000.89"
+                  />
+                  <PrimaryInputField
+                    label="Address"
+                    type="text"
+                    name="occupation"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.workAddress}
+                    error={errors.workAddress}
+                    placeholder=""
+                  />
+                </div>
+                <hr className="w-full bg-gray-400 my-5" />
 
-                <div className="w-full flex justify-end items-center">
-                  <div className="w-3/4"></div>
-                  <div className="flex justify-end items-center space-x-5 w-2/4 md:w-1/4">
-                    <button>
-                      <p className="text-sm mt-4 leading-none text-secondary font-bold ">
-                        Skip
-                      </p>
-                    </button>
+                <h2 className="text-primaryText my-5 text-xs font-bold ">
+                  NEXT OF KIN
+                </h2>
+                <hr className="w-full bg-gray-400 my-5" />
 
-                    <PrimaryButton
-                      label="PROCEED"
-                      onClick={handleSubmit}
-                      type={undefined}
-                    />
-                  </div>
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
+                  <PrimaryInputField
+                    label="Name"
+                    type="text"
+                    name="nextOfKinName"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.nextOfKinName}
+                    error={errors.nextOfKinName}
+                    placeholder=""
+                  />
+                  <PrimaryInputField
+                    label="Address"
+                    type="text"
+                    name="nextOfKinAddress"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.nextOfKinAddress}
+                    error={errors.nextOfKinAddress}
+                    placeholder=""
+                  />
+                </div>
+
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
+                  <PrimaryInputField
+                    label="State"
+                    type="text"
+                    name="nextOfKinState"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.nextOfKinState}
+                    error={errors.nextOfKinState}
+                    placeholder=""
+                  />
+                  <PrimaryInputField
+                    label="Email Address"
+                    type="text"
+                    name="nextOfKinEmail"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.nextOfKinEmail}
+                    error={errors.nextOfKinEmail}
+                    placeholder=""
+                  />
+                </div>
+
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
+                  <PrimaryInputField
+                    label="Next of Kin Phone Number"
+                    type="text"
+                    name="nextOfKinPhone"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.nextOfKinPhone}
+                    error={errors.nextOfKinPhone}
+                    placeholder=""
+                  />
+                </div>
+
+                <hr className="w-full bg-gray-400 my-5" />
+
+                <h2 className="text-primaryText my-5 text-xs font-bold ">
+                  UPLOAD DOCUMENTS
+                </h2>
+                <hr className="w-full bg-gray-400 my-5" />
+
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
+                  <FileUploadField
+                    file={values.governmentId}
+                    label="Government ID"
+                    handleChange={undefined}
+                    name={""}
+                    types={["PDF", "JPEG", "PNG"]}
+                  />
+
+                  <FileUploadField
+                    file={values.utilityBill}
+                    label="Utility Bill"
+                    handleChange={handleChange}
+                    name={"utilityBill"}
+                    types={["PDF", "JPEG", "PNG"]}
+                  />
+                </div>
+
+                <hr className="w-full bg-gray-400 my-5" />
+
+                <h2 className="text-primaryText my-5 text-xs font-bold ">
+                  FINANCIAL RECORDS
+                </h2>
+                <hr className="w-full bg-gray-400 my-5" />
+
+                <div className="block md:grid md:grid-cols-2 md:gap-5">
+                  <FileUploadField
+                    file={values.governmentId}
+                    label="Government ID"
+                    handleChange={undefined}
+                    name={""}
+                    types={["PDF", "JPEG", "PNG"]}
+                  />
+
+                  <FileUploadField
+                    file={values.utilityBill}
+                    label="Utility Bill"
+                    handleChange={handleChange}
+                    name={"utilityBill"}
+                    types={["PDF", "JPEG", "PNG"]}
+                  />
                 </div>
               </div>
             </div>
