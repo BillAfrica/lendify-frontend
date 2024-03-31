@@ -1,12 +1,19 @@
 import React from "react";
 import OtpInput, { AllowedInputTypes } from "react-otp-input";
+import InputError from "../../base/Error/InputError";
 
 interface OTPInputFieldProps {
   value: string;
   onChange: any;
   numInputs: number;
+  error: string | null | undefined;
 }
-function OTPInputField({ value, onChange, numInputs }: OTPInputFieldProps) {
+function OTPInputField({
+  value,
+  onChange,
+  numInputs,
+  error,
+}: OTPInputFieldProps) {
   return (
     <div>
       <OtpInput
@@ -26,6 +33,10 @@ function OTPInputField({ value, onChange, numInputs }: OTPInputFieldProps) {
         containerStyle="flex justify-between w-full"
         renderInput={(props) => <input {...props} />}
       />
+
+      <div className="mt-5">
+        {error ? <InputError message={error} /> : null}
+      </div>
     </div>
   );
 }

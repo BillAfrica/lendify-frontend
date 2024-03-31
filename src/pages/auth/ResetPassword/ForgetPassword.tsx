@@ -1,11 +1,14 @@
 import { useState } from "react";
-import AuthLayout from "../../components/base/layout/AuthLayout";
+import AuthLayout from "../../../components/base/layout/AuthLayout";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import PrimaryInputField from "../../components/block/inputs/PrimaryInputField";
-import PrimaryButton from "../../components/block/button/PrimaryButton";
+import PrimaryInputField from "../../../components/block/inputs/PrimaryInputField";
+import PrimaryButton from "../../../components/block/button/PrimaryButton";
 
-export default function ForgetPassword() {
+interface ForgetPasswordProps{
+  setStage: Function
+}
+export default function ForgetPassword({setStage}:ForgetPasswordProps) {
   return (
     <>
       <AuthLayout>
@@ -19,6 +22,7 @@ export default function ForgetPassword() {
               .required("Email is required"),
           })}
           onSubmit={(values) => {
+            setStage("reset")
             console.log(values);
           }}
         >
@@ -35,7 +39,7 @@ export default function ForgetPassword() {
                 tabIndex={0}
                 className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500 mb-10"
               >
-                Enter your email address to reset your password
+                Enter the email address associated with your account to continue
               </p>
 
               <form onSubmit={handleSubmit}>

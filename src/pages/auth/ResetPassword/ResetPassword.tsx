@@ -1,10 +1,10 @@
 import { useState } from "react";
-import AuthLayout from "../../components/base/layout/AuthLayout";
+import AuthLayout from "../../../components/base/layout/AuthLayout";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import PrimaryButton from "../../components/block/button/PrimaryButton";
-import PasswordInputField from "../../components/block/inputs/PasswordInputField";
-import OTPInputField from "../../components/block/inputs/OTPInputField";
+import PrimaryButton from "../../../components/block/button/PrimaryButton";
+import PasswordInputField from "../../../components/block/inputs/PasswordInputField";
+import OTPInputField from "../../../components/block/inputs/OTPInputField";
 
 export default function ResetPassword() {
   return (
@@ -58,6 +58,7 @@ export default function ResetPassword() {
                       setValues({ ...values, otp: otp });
                     }}
                     numInputs={4}
+                    error={errors.otp}
                   />
                 </div>
 

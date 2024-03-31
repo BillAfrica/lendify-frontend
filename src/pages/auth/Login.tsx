@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import PrimaryInputField from "../../components/block/inputs/PrimaryInputField";
 import PrimaryButton from "../../components/block/button/PrimaryButton";
 import PasswordInputField from "../../components/block/inputs/PasswordInputField";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -26,7 +27,7 @@ export default function Login() {
           }}
         >
           {({ values, errors, handleChange, handleBlur, handleSubmit }) => (
-            <div className="bg-white shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-5 py-6">
+            <div>
               <p
                 tabIndex={0}
                 className="focus:outline-none text-2xl font-extrabold leading-6 text-gray-800"
@@ -75,6 +76,11 @@ export default function Login() {
                   error={errors.password}
                   name="password"
                 />
+                <Link to="/forget-password">
+                  <p className="text-end cursor-pointer text-sm mt-2 text-primary font-bold">
+                    Forget Password
+                  </p>
+                </Link>
 
                 <PrimaryButton
                   label="Login"

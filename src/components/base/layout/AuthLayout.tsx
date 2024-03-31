@@ -1,14 +1,13 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 interface AuthLayoutProps {
   children: React.ReactNode;
 }
 export default function AuthLayout({ children }: AuthLayoutProps) {
-  const [showpass, setShowPass] = useState(false);
-
   return (
     <>
-      <div className="bg-indigo-50 md:h-screen md:w-screen md:overflow-hidden">
+      <div className="bg-indigo-50 min-h-screen min-w-screen md:overflow-hidden">
         <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-28 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
           <div className=" md:hidden sm:mb-8 mb-6">
             <svg
@@ -29,9 +28,16 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
             </svg>
           </div>
 
-          {children}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-5 py-6"
+          >
+            {children}
+          </motion.div>
 
-          <div className="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6">
+          <div className="xl:w-1/3 md:w-1/2 lg:ml-16 ml-8 md:mt-0 mt-6 hidden md:block">
             <div className="pl-8 md:block hidden">
               <svg
                 width={191}

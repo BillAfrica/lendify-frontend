@@ -1,16 +1,18 @@
 import Login from "./pages/auth/Login";
-import ForgetPassword from "./pages/auth/ForgetPassword";
-import SignupBorrower from "./pages/auth/SignupBorrower";
-import ResetPassword from "./pages/auth/ResetPassword";
+import SignupBorrower from "./pages/auth/SignUp/SignupBorrower";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ForgetPasswordFlow from "./pages/auth/ResetPassword/ForgetPasswordFlow";
+import SignUpFlow from "./pages/auth/SignUp/SignUpFlow";
 
 function App() {
   return (
-    <div>
-      <SignupBorrower />
-      <Login />
-      <ForgetPassword />
-      <ResetPassword />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="forget-password" element={<ForgetPasswordFlow />} />
+        <Route path="onboarding" element={<SignUpFlow />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

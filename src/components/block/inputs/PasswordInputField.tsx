@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa";
+import InputError from "../../base/Error/InputError";
 
 interface PasswordInputFieldProps {
   label: string;
@@ -26,7 +27,7 @@ function PasswordInputField({
 }: PasswordInputFieldProps) {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <div className="relative">
+    <div className="relative my-2">
       <label
         htmlFor="email"
         className="text-sm font-medium leading-none text-gray-600"
@@ -41,7 +42,7 @@ function PasswordInputField({
         onBlur={onBlur}
         onChange={onChange}
         value={value}
-        className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+        className="bg-gray-200 border placeholder:text-gray-400  rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
         placeholder={placeholder}
         maxLength={maxLength}
         minLength={minLength}
@@ -61,7 +62,7 @@ function PasswordInputField({
         />
       )}
 
-      {error ? <p className="text-red-500 text-xs italic">{error}</p> : null}
+      {error ? <InputError message={error} /> : null}
     </div>
   );
 }

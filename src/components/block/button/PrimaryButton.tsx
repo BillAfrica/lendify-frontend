@@ -12,7 +12,7 @@ function PrimaryButton({ label, onClick, type }: PrimaryButtonProps) {
         onClick={onClick}
         type={type}
         role={type}
-        className="focus:ring-none focus:ring-none focus:ring-none text-sm font-semibold leading-none text-white focus:outline-none bg-primary border rounded  py-4 w-full"
+        className="focus:ring-none uppercase focus:ring-none focus:ring-none text-sm font-semibold leading-none text-white focus:outline-none bg-primary border rounded  py-4 w-full"
       >
         {label}
       </button>

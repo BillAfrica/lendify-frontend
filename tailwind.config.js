@@ -5,10 +5,8 @@ export default {
     extend: {
       colors: {
         primary: "#097782",
-        secondary: {
-          100: "#E2E2D5",
-          200: "#888883",
-        },
+        secondary: "#002E3E",
+        primaryBg: "#E8EAF6",
       },
       fontFamily: {
         body: ["Nunito"],

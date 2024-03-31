@@ -1,4 +1,5 @@
 import React from "react";
+import InputError from "../../base/Error/InputError";
 
 interface PrimaryInputFieldProps {
   label: string;
@@ -23,7 +24,7 @@ function PrimaryInputField({
   maxLength,
 }: PrimaryInputFieldProps) {
   return (
-    <div>
+    <div className="my-2">
       <label
         htmlFor="email"
         className="text-sm font-medium leading-none text-gray-600"
@@ -38,12 +39,12 @@ function PrimaryInputField({
         onBlur={onBlur}
         onChange={onChange}
         value={value}
-        className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+        className="bg-gray-200 placeholder:text-gray-400 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
         placeholder={placeholder}
         maxLength={maxLength}
       />
 
-      {error ? <p className="text-red-500 text-xs italic">{error}</p> : null}
+      {error ? <InputError message={error} /> : null}
     </div>
   );
 }
